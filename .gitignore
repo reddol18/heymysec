@@ -1,0 +1,53 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+android/app/debug
+android/app/profile
+android/app/release
+android/app/google-services.json
+
+lib/firebase_database_tools.dart
+lib/firebase_options.dart
+lib/kafka_tools.dart
+firebase.json
+client_secret_181780076081-3sc3c47c9toogukdjn3746brimjvkchv.apps.googleusercontent.com.json
+client_secret_1052970932863-tavcd5gj677ep221qci8s9201bhp2gpj.apps.googleusercontent.com.json
+gemini_key.txt
