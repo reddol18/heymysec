@@ -16,7 +16,7 @@ import 'package:intl/intl.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Gemini.init(apiKey: "**your key**");
+  Gemini.init(apiKey: "** Your Gemini Key **");
   runApp(ChangeNotifierProvider(
     create: (context) => SttTools(),
     child: const MyApp(),
@@ -71,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
   // 카테고리 목록
   List<String> categories = [];
   List<String> categorieIds = [];
-  late UserCredential firebaseUser;
   // Gemini Result
   String geminiResult = "";
 
@@ -121,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> signInGoogle() async {
     googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) async {
+      debugPrint("Sign In Success");
       setState(() {
         _currentUser = account;
       });
@@ -151,24 +151,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
               });
             });
-
-            firebaseUser = await FirebaseAuth.instance.signInWithCredential(credential);
-            debugPrint(firebaseUser.user?.uid);
-            debugPrint(firebaseUser.user?.email);
           } on PlatformException catch (e) {
             debugPrint(e.message);
           }
       } else {
-        debugPrint("No Google User");
+        debugPrint("No Google User. Sign In Now");
         await googleSignIn.signIn();
       }
     });
     if (googleSignIn.currentUser == null) {
-      debugPrint("No Google User");
+      debugPrint("No Google User. Sign In Now.");
       try {
-        await googleSignIn.signIn();
+        await googleSignIn.signInSilently();
       } on PlatformException catch(e) {
-        debugPrint(e.message);
+        debugPrint("Sign In Error: ${e.message}");
       }
     }
   }

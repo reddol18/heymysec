@@ -1,16 +1,46 @@
-# mysec
+# HeyMySec
 
-My AI Secretary for google calendar
+- 음성으로 구글 캘린더에 스케쥴을 입력할 수 있는 어플리케이션 입니다.
+- Flutter를 이용해서 개발했습니다.
+- 안드로이드 버젼에 한해서 실행가능 합니다.
+- 구글 로그인, 구글 캘린더 및 Gemini API를 이용합니다.
 
-## Getting Started
+## 개발하게 된 계기
 
-This project is a starting point for a Flutter application.
+- 아래 글에 개발하게 된 이유가 설명되어 있습니다.
+  - https://blog.naver.com/dolja21/223392231706
+- 위와 같은 이유로 자연어 문장으로 이루어진 스케쥴 정보를 구글 캘린더에 정확하게 입력하는 앱을 구상하게 되었습니다.
+- 처음에는 자연어 처리를 위한 AI 솔루션이 백엔드 서버로 존재하고, 앱에서는 파이어베이스 Realtime Database에
+  요청을 추가하면 백엔드 서버에서 배치작업으로 스케쥴 정보를 인식한 후 이를 다시 앱에 전달하는 방식으로 구현 했었습니다.
+- 그런데 이 방식은 관리하는데 들어가는 비용측면, 그리고 여기에 사용한 슬롯필링, NER 등의 AI 모델의 정확성 문제로 인해서
+  지금의 방식으로 전환하였습니다.
+- 지금은 위에서 구상했던 백엔드 서버가 해야 할 작업을 구글 Gemini(LLM) 서비스에 맡기고 있습니다.
 
-A few resources to get you started if this is your first Flutter project:
+## 실행하기 전에 필요한 것
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 구글 로그인 및 캘린더 API에 접근 가능한 계정 및 google-services.json
+  - android/app 폴더에 복사해야 합니다.
+- 구글 Gemini API 키 : main.dart 에서 이에 해당하는 부분에 키를 입력해야 합니다
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 실행화면
+
+- 사용법은 간단합니다.
+- 권한 지정
+- 음성 인식
+- 정보 확인
+
+## 사용된 기술
+
+- 구글 로그인 및 캘린더 API
+- 구글 Gemini API
+- 구글 STT
+
+## 앞으로의 계획
+
+- UI/UX 개선
+- STT 인식 정화도 개선
+- 카테고리명 띄어쓰기 반영
+- 스케쥴 수정 기능 추가
+
+
+
