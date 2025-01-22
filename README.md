@@ -26,21 +26,21 @@
 
 - 사용법은 간단합니다.
 - 먼저 구글 계정으로 로그인 합니다.
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-51 001.jpeg)
+  - ![Login](./readme/1.jpeg)
 - 권한 지정
   - 마이크 사용을 위한 권한을 허용해야 합니다.
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-51 002.jpeg) 
+  - ![Login](./readme/2.jpeg) 
 - 음성 인식 시작
   - 녹음 버튼을 터치 해서 메시지를 남겨보세요
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-52 004.jpeg)
+  - ![Login](./readme/3.jpeg)
   - 멈춤 버튼을 터치 하여 메시지 녹음을 중단하고, 인식된 문장을 확인합니다.
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-52 005.jpeg)
+  - ![Login](./readme/4.jpeg)
   - 재녹음 하고 싶으면 다시 녹음 버튼을 터치하면 됩니다.
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-52 006.jpeg)
+  - ![Login](./readme/5.jpeg)
   - 그게 아니고 스케쥴 입력을 진행하고 싶으면 보내기 버튼을 터치합니다.
 - 정보 확인
   - 스케쥴을 입력하기 전에, 마지막으로 자신이 요청한 정보가 맞는지 확인합니다. 
-  - ![Login](./readme/KakaoTalk_Photo_2025-01-22-13-08-52 007.jpeg)
+  - ![Login](./readme/6.jpeg)
   - 구글 캘린더에 들어가보면 스케쥴이 새로 만들어진 것을 확인할 수 있습니다.
   - ![Login](./readme/result.png)
 
