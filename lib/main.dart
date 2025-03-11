@@ -12,11 +12,12 @@ import 'global_vars.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:string_similarity/string_similarity.dart';
 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Gemini.init(apiKey: "** Your Gemini Key **");
+  Gemini.init(apiKey: "");
   runApp(ChangeNotifierProvider(
     create: (context) => SttTools(),
     child: const MyApp(),
@@ -355,18 +356,26 @@ class _MyHomePageState extends State<MyHomePage> {
                                     resultValue["etime"] =
                                         TimeOfDay.fromDateTime(DateTime.parse(
                                             temp2[0] + " " + temp2[2] + ":00"));
+                                    List<String> items = [];
                                     calendarList.items?.forEach((element) {
-                                      setState(() {
-                                        if (temp2[3] != Null &&
-                                            element.summary?.toUpperCase() == temp2[3].toUpperCase()) {
-                                          temp2[3] = element.summary!;
-                                          resultValue["category"] = temp2[3];
-                                          resultValue["categoryId"] =
-                                              element.id;
-                                        }
-                                      });
+                                      items.add(element.summary!.toUpperCase());
                                     });
-                                    resultValue["title"] = temp2[4];
+                                    if (temp2[3] != Null) {
+                                      var matches = temp2[3].bestMatch(
+                                          items);
+                                      setState(() {
+                                        resultValue["category"] =
+                                            calendarList.items
+                                                ?.elementAt(
+                                                matches.bestMatchIndex)
+                                                .summary;
+                                        resultValue["title"] =
+                                            calendarList.items
+                                                ?.elementAt(
+                                                matches.bestMatchIndex)
+                                                .id;
+                                      });
+                                    }
                                     globalVars.setHasResult(true);
                                   });
                                 },
