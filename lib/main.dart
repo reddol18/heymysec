@@ -369,13 +369,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 ?.elementAt(
                                                 matches.bestMatchIndex)
                                                 .summary;
-                                        resultValue["title"] =
+                                        resultValue["categoryId"] =
                                             calendarList.items
                                                 ?.elementAt(
                                                 matches.bestMatchIndex)
                                                 .id;
                                       });
                                     }
+                                    resultValue["title"] = temp2[4];
                                     globalVars.setHasResult(true);
                                   });
                                 },
